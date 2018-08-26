@@ -67,7 +67,7 @@ class MPU9250(InvenSenseMPU):
         Returns the temperature in degree C.
         '''
         try:
-            self._read(self.buf2, 0x41, self.mpu_addr)
+            self.buf2=self._read(0x41, 2)
         except OSError:
             raise MPUException(self._I2Cerror)
         return bytes_toint(self.buf2[0], self.buf2[1])/333.87 + 21  # I think
@@ -82,7 +82,7 @@ class MPU9250(InvenSenseMPU):
         Sample rate (KHz):  8   1   1   1   1   1   1   8
         '''
         try:
-            self._read(self.buf1, 0x1A, self.mpu_addr)
+            self.buf1 = self._read(0x1A, 1)
             res = self.buf1[0] & 7
         except OSError:
             raise MPUException(self._I2Cerror)
@@ -98,7 +98,7 @@ class MPU9250(InvenSenseMPU):
         '''
         if filt in range(8):
             try:
-                self._write(filt, 0x1A, self.mpu_addr)
+                self._write(0x1A,filt)
             except OSError:
                 raise MPUException(self._I2Cerror)
         else:
@@ -113,7 +113,7 @@ class MPU9250(InvenSenseMPU):
         Sample rate (KHz):  1   1   1   1   1   1   1   1
         '''
         try:
-            self._read(self.buf1, 0x1D, self.mpu_addr)
+            self.buf1 = self._read(0x1D, 1)
             res = self.buf1[0] & 7
         except OSError:
             raise MPUException(self._I2Cerror)
@@ -129,7 +129,7 @@ class MPU9250(InvenSenseMPU):
         '''
         if filt in range(8):
             try:
-                self._write(filt, 0x1D, self.mpu_addr)
+                self._write(0x1D,filt)
             except OSError:
                 raise MPUException(self._I2Cerror)
         else:
@@ -142,10 +142,10 @@ class MPU9250(InvenSenseMPU):
         returns correction values
         '''
         try:
-            self._write(0x0F, 0x0A, self._mag_addr)      # fuse ROM access mode
-            self._read(self.buf3, 0x10, self._mag_addr)  # Correction values
-            self._write(0, 0x0A, self._mag_addr)         # Power down mode (AK8963 manual 6.4.6)
-            self._write(0x16, 0x0A, self._mag_addr)      # 16 bit (0.15uT/LSB not 0.015), mode 2
+            self._write(0x0A,0x0F)      # fuse ROM access mode
+            self.buf3 = self._read( 0x10, 3)  # Correction values
+            self._write(0x0A,0)         # Power down mode (AK8963 manual 6.4.6)
+            self._write(0x0A, 0x16)      # 16 bit (0.15uT/LSB not 0.015), mode 2
         except OSError:
             raise MPUException(self._I2Cerror)
         mag_x = (0.5*(self.buf3[0] - 128))/128 + 1
@@ -165,11 +165,11 @@ class MPU9250(InvenSenseMPU):
         Update magnetometer Vector3d object (if data available)
         '''
         try:                                    # If read fails, returns last valid data and
-            self._read(self.buf1, 0x02, self._mag_addr)  # increments mag_stale_count
+            self.buf1 = self._read(0x02, 1)  # increments mag_stale_count
             if self.buf1[0] & 1 == 0:
                 return self._mag                # Data not ready: return last value
-            self._read(self.buf6, 0x03, self._mag_addr)
-            self._read(self.buf1, 0x09, self._mag_addr)
+            self.buf6 = self._read(0x03, 6)
+            self.buf1 = self._read(0x09, 1)
         except OSError:
             raise MPUException(self._I2Cerror)
         if self.buf1[0] & 0x08 > 0:             # An overflow has occurred
@@ -195,10 +195,10 @@ class MPU9250(InvenSenseMPU):
         '''
         Uncorrected values because floating point uses heap
         '''
-        self._read(self.buf1, 0x02, self._mag_addr)
+        self.buf1 = self._read(0x02, 1)
         if self.buf1[0] == 1:                   # Data is ready
-            self._read(self.buf6, 0x03, self._mag_addr)
-            self._read(self.buf1, 0x09, self._mag_addr)    # Mandatory status2 read
+            self.buf6 = self._read(0x03, 6)
+            self.buf1 = self._read(0x09, 1)    # Mandatory status2 read
             self._mag._ivector[1] = 0
             if self.buf1[0] & 0x08 == 0:        # No overflow has occurred
                 self._mag._ivector[1] = bytes_toint(self.buf6[1], self.buf6[0])
