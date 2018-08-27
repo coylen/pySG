@@ -25,9 +25,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 '''
 
-from imu import InvenSenseMPU, bytes_toint, MPUException
-from vector3d import Vector3d
-
+from .imu import InvenSenseMPU, bytes_toint, MPUException
+from .vector3d import Vector3d
+import pigpio
 
 class MPU9250(InvenSenseMPU):
     '''

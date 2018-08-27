@@ -38,8 +38,8 @@ THE SOFTWARE.
 # crashing. However if the I2C has crashed we're probably stuffed.
 
 #import pyb
-import pipgio
-from vector3d import Vector3d
+import pigpio
+from .vector3d import Vector3d
 from time import sleep
 
 class MPUException(OSError):
@@ -80,7 +80,7 @@ class InvenSenseMPU(object):
 
         sleep(0.2)
         pi=pigpio.pi()
-        self._mpu_i2c = pi.i2c_open(0, 104)
+        self._mpu_i2c = pi.i2c_open(1, 104)
         self.pi=pi
 
         self.chip_id                     # Test communication by reading chip_id: throws exception on error
@@ -97,7 +97,7 @@ class InvenSenseMPU(object):
         '''
         count1, buf = self.pi.i2c_read_i2c_block_data(self._mpu_i2c, memaddr, count)
 
-        if count = count1:
+        if count == count1:
             return buf
         else:
             raise MPUException(self._I2Cerror)
@@ -107,7 +107,10 @@ class InvenSenseMPU(object):
         '''
         Perform a memory write. Caller should trap OSError.
         '''
-        self.pi.i2c_write_i2c_block_data(self._mpu_i2c, memaddr, data)
+        if isinstance(data, int):
+            self.pi.i2c_write_byte_data(self._mpu_i2c, memaddr, data)
+        else:
+            self.pi.i2c_write_i2c_block_data(self._mpu_i2c, memaddr, data)
 
     # wake
     def wake(self):
