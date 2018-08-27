@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea12d354-c522-43b9-835e-e89514396ccf" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/radio_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MPU9250/imu.py" beforeDir="false" afterPath="$PROJECT_DIR$/MPU9250/imu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MPU9250/mpu9250.py" beforeDir="false" afterPath="$PROJECT_DIR$/MPU9250/mpu9250.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MPU9250/vector3d.py" beforeDir="false" afterPath="$PROJECT_DIR$/MPU9250/vector3d.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RFM69/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/RFM69/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RFM69/radio.py" beforeDir="false" afterPath="$PROJECT_DIR$/RFM69/radio.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,14 +16,15 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/SilverGirl$radio.coverage" NAME="radio Coverage Results" MODIFIED="1535293954078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RFM69" />
+    <SUITE FILE_PATH="coverage/SilverGirl$radio_test.coverage" NAME="radio_test Coverage Results" MODIFIED="1535383529372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="radio.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="radio.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RFM69/radio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+            <state relative-caret-position="-306">
+              <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -31,10 +32,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imu.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="radio_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/radio_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RFM69/registers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RFM69/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imu.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MPU9250/imu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
+            <state relative-caret-position="663">
               <caret line="39" column="11" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="11" />
               <folding>
                 <element signature="e#1990#2003#0" expanded="true" />
@@ -43,10 +74,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="deltat.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Fusion/deltat.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="mpu9250.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MPU9250/mpu9250.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
+            <state relative-caret-position="77">
               <caret line="34" column="47" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="47" />
             </state>
           </provider>
@@ -55,7 +91,7 @@
       <file leaf-file-name="vector3d.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MPU9250/vector3d.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1453">
+            <state relative-caret-position="595">
               <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="e#1274#1296#0" expanded="true" />
@@ -79,6 +115,9 @@
       <find>xfer</find>
       <find>i2c</find>
       <find>pyb</find>
+      <find>freq</find>
+      <find>readA</find>
+      <find>868</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -87,12 +126,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/RFM69/config.py" />
         <option value="$PROJECT_DIR$/RFM69/pigpio_radio.py" />
-        <option value="$PROJECT_DIR$/RFM69/radio.py" />
         <option value="$PROJECT_DIR$/MPU9250/imu.py" />
         <option value="$PROJECT_DIR$/MPU9250/mpu9250.py" />
         <option value="$PROJECT_DIR$/MPU9250/vector3d.py" />
+        <option value="$PROJECT_DIR$/radio_test.py" />
+        <option value="$PROJECT_DIR$/RFM69/config.py" />
+        <option value="$PROJECT_DIR$/RFM69/radio.py" />
       </list>
     </option>
   </component>
@@ -117,6 +157,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -152,7 +193,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -171,7 +211,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.radio_test">
     <configuration name="radio" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="SilverGirl" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -191,8 +231,32 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="radio_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="SilverGirl" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/radio_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.radio" />
+      <item itemvalue="Python.radio_test" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.radio_test" />
         <item itemvalue="Python.radio" />
       </list>
     </recent_temporary>
@@ -212,23 +276,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="File Transfer" order="9" visible="true" weight="0.32900432" />
+      <window_info anchor="bottom" id="File Transfer" order="9" weight="0.32900432" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26332623" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39935064" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -257,6 +322,46 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/RFM69/radio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MPU9250/imu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="11" />
+          <folding>
+            <element signature="e#1990#2003#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fusion/deltat.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MPU9250/vector3d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="e#1274#1296#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MPU9250/mpu9250.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="34" column="47" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RFM69/radio.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -378,9 +483,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pigpio/pigpio.py" />
     <entry file="file://$PROJECT_DIR$/pigpio/pigpio.py" />
-    <entry file="file://$PROJECT_DIR$/RFM69/registers.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/RFM69/pigpio_radio.py" />
     <entry file="file://$PROJECT_DIR$/RFM69/packet.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -391,26 +493,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RFM69/config.py">
+    <entry file="file://$PROJECT_DIR$/MPU9250/imu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="663">
+          <caret line="39" column="11" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="11" />
+          <folding>
+            <element signature="e#1990#2003#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RFM69/radio.py">
+    <entry file="file://$PROJECT_DIR$/Fusion/deltat.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fusion/fusion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="77">
+          <caret line="112" column="20" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MPU9250/vector3d.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1453">
+        <state relative-caret-position="595">
           <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
           <folding>
             <element signature="e#1274#1296#0" expanded="true" />
@@ -420,17 +525,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MPU9250/mpu9250.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
+        <state relative-caret-position="77">
           <caret line="34" column="47" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MPU9250/imu.py">
+    <entry file="file://$PROJECT_DIR$/RFM69/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="11" />
+        <state relative-caret-position="17">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RFM69/registers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/radio_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
           <folding>
-            <element signature="e#1990#2003#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RFM69/radio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>

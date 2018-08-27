@@ -4,9 +4,9 @@ import logging
 #import spidev
 #import RPi.GPIO as GPIO
 import pigpio as pigpio
-from registers import *
-from packet import Packet
-from config import get_config
+from .registers import *
+from .packet import Packet
+from .config import get_config
 
 class Radio(object):
 
@@ -41,8 +41,8 @@ class Radio(object):
 
         self.auto_acknowledge = kwargs.get('autoAcknowledge', True)
         self.isRFM69HW = kwargs.get('isHighPower', True)
-        self.intPin = kwargs.get('interruptPin', 18)
-        self.rstPin = kwargs.get('resetPin', 29)
+        self.intPin = kwargs.get('interruptPin', 24)
+        self.rstPin = kwargs.get('resetPin', 5)
         self.spiBus = kwargs.get('spiBus', 0)
         self.spiDevice = kwargs.get('spiDevice', 0)
         self.promiscuousMode = kwargs.get('promiscuousMode', 0)
@@ -381,9 +381,9 @@ class Radio(object):
         elif requestACK:
             ack = 0x40
         if isinstance(buff, str):
-            self.pi.xfer(self.spi,[REG_FIFO | 0x80, len(buff) + 3, toAddress, self.address, ack] + [int(ord(i)) for i in list(buff)])
+            self.pi.spi_xfer(self.spi,[REG_FIFO | 0x80, len(buff) + 3, toAddress, self.address, ack] + [int(ord(i)) for i in list(buff)])
         else:
-            self.pi.xfer(self.spi,[REG_FIFO | 0x80, len(buff) + 3, toAddress, self.address, ack] + buff)
+            self.pi.spi_xfer(self.spi,[REG_FIFO | 0x80, len(buff) + 3, toAddress, self.address, ack] + buff)
 
         self.sendLock = True
         self._setMode(RF69_MODE_TX)
@@ -408,16 +408,16 @@ class Radio(object):
     def _encrypt(self, key):
         self._setMode(RF69_MODE_STANDBY)
         if key != 0 and len(key) == 16:
-            self.pi.fer(self.spi,[REG_AESKEY1 | 0x80] + [int(ord(i)) for i in list(key)])
+            self.pi.spi_xfer(self.spi,[REG_AESKEY1 | 0x80] + [int(ord(i)) for i in list(key)])
             self._writeReg(REG_PACKETCONFIG2,(self._readReg(REG_PACKETCONFIG2) & 0xFE) | RF_PACKET2_AES_ON)
         else:
             self._writeReg(REG_PACKETCONFIG2,(self._readReg(REG_PACKETCONFIG2) & 0xFE) | RF_PACKET2_AES_OFF)
 
     def _readReg(self, addr):
-        return self.pi.xfer(self.spi,[addr & 0x7F, 0])[1][1]
+        return self.pi.spi_xfer(self.spi,[addr & 0x7F, 0])[1][1]
 
     def _writeReg(self, addr, value):
-        self.pi.xfer(self.spi[addr | 0x80, value])
+        self.pi.spi_xfer(self.spi,[addr | 0x80, value])
 
     def _promiscuous(self, onOff):
         self.promiscuousMode = onOff
@@ -486,7 +486,7 @@ class Radio(object):
         if self.mode == RF69_MODE_RX and self._readReg(REG_IRQFLAGS2) & RF_IRQFLAGS2_PAYLOADREADY:
             self._setMode(RF69_MODE_STANDBY)
         
-            payload_length, target_id, sender_id, CTLbyte = self.pi.xfer(self.spi,[REG_FIFO & 0x7f,0,0,0,0])[1][1:]
+            payload_length, target_id, sender_id, CTLbyte = self.pi.spi_xfer(self.spi,[REG_FIFO & 0x7f,0,0,0,0])[1][1:]
         
             if payload_length > 66:
                 payload_length = 66
@@ -500,7 +500,7 @@ class Radio(object):
             data_length = payload_length - 3
             ack_received  = bool(CTLbyte & 0x80)
             ack_requested = bool(CTLbyte & 0x40)
-            data = self.pi.xfer(self.spi[REG_FIFO & 0x7f] + [0 for i in range(0, data_length)])[1:]
+            data = self.pi.spi_xfer(self.spi[REG_FIFO & 0x7f] + [0 for i in range(0, data_length)])[1:]
             rssi = self._readRSSI()
 
             if ack_received:
