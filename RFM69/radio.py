@@ -99,12 +99,12 @@ class Radio(object):
         start = time.time()
         while self._readReg(REG_SYNCVALUE1) != 0xAA:
             self._writeReg(REG_SYNCVALUE1, 0xAA)
-            if time.time() - start > 15000:
+            if time.time() - start > 15:
                 raise Exception('Failed to sync with chip')
         start = time.time()
         while self._readReg(REG_SYNCVALUE1) != 0x55:
             self._writeReg(REG_SYNCVALUE1, 0x55)
-            if time.time() - start > 15000:
+            if time.time() - start > 15:
                 raise Exception('Failed to sync with chip')
 
     def _set_config(self, config):

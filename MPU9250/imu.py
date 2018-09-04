@@ -95,10 +95,10 @@ class InvenSenseMPU(object):
         '''
         Read bytes to pre-allocated buffer Caller traps OSError.
         '''
-        count1, buf = self.pi.i2c_read_i2c_block_data(self._mpu_i2c, memaddr, count)
+        count1, bufy = self.pi.i2c_read_i2c_block_data(self._mpu_i2c, memaddr, count)
 
         if count == count1:
-            return buf
+            return bufy
         else:
             raise MPUException(self._I2Cerror)
 

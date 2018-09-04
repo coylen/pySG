@@ -22,16 +22,17 @@ except ImportError:
     import time
 
 from math import sqrt, atan2, asin, degrees, radians
-from deltat import DeltaT
+from .deltat import DeltaT
 
 class Fusion(object):
     '''
     Class provides sensor fusion allowing heading, pitch and roll to be extracted. This uses the Madgwick algorithm.
     The update method must be called peiodically. The calculations take 1.6mS on the Pyboard.
     '''
+
     declination = 0                         # Optional offset for true north. A +ve value adds to heading
     def __init__(self, timediff=None):
-        self.magbias = (0, 0, 0)            # local magnetic bias factors: set from calibration
+        self.magbias = (57.495703125, -20.45859375, -16.027734374999998)            # local magnetic bias factors: set from calibration
         self.deltat = DeltaT(timediff)      # Time between updates
         self.q = [1.0, 0.0, 0.0, 0.0]       # vector to hold quaternion
         GyroMeasError = radians(40)         # Original code indicates this leads to a 2 sec response time
